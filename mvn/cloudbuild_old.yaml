@@ -41,17 +41,17 @@ steps:
 # run examples
 - name: 'gcr.io/$PROJECT_ID/mvn:3.3.9-jdk-8'
   args: ['install']
-  dir: 'examples/data-backend'
+  dir: 'examples/spring_boot'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.']
-  dir: 'examples/data-backend'
+  dir: 'examples/spring_boot'
 
 - name: 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
   args: ['install']
-  dir: 'examples/data-backend'
+  dir: 'examples/spring_boot'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '.']
-  dir: 'examples/data-backend'
+  dir: 'examples/spring_boot'
 
 images:
 - 'gcr.io/$PROJECT_ID/mvn:3.5.0-jdk-8'
