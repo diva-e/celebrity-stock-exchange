@@ -2,5 +2,14 @@ steps:
   - name: 'gcr.io/cloud-builders/mvn'
     args: ['install','-DskipTests']
     dir: 'data-backend'
-    timeout: 300s
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Deploy
+    args:
+    - 'apply'
+    - '-f'
+    - 'kubernetes.yaml'
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
+    dir: 'data-backend'
 images: ['gcr.io/$PROJECT_ID/databackend']
