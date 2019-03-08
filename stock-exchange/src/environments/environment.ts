@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  //url of the REST Endpoint of the data-backend application
+  dataBackendUrl: 'http://localhost:8080'
 };
 
 /*

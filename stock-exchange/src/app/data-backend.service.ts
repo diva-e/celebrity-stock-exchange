@@ -1,0 +1,31 @@
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../environments/environment";
+import {map} from "rxjs/operators";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataBackendService {
+
+  private getCelebrityEndpoint = environment.dataBackendUrl + '/get-celebrity';
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type':  'application/json'
+  //   })
+  // };
+
+  constructor(private http: HttpClient) {
+  }
+
+  getCelebrity() {
+    return this.http.get(this.getCelebrityEndpoint).pipe(
+      map(this.extractData));
+  }
+
+  private extractData(res: Response) {
+    let body = res;
+    return body || {};
+  }
+
+}

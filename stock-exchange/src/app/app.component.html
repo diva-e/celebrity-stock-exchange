@@ -1,7 +1,7 @@
 <div class="content">
   <div class="heading">
     <h1>
-      {{firstName}} {{lastName}}
+      {{celebrity?.firstName}} {{celebrity?.lastName}}
     </h1>
   </div>
   <div>
@@ -12,10 +12,10 @@
       <div class="col-md-6 col-xs-12">
         <h2>10/10 Would buy this person!</h2>
         <ul>
-          <li>ID: {{id}}</li>
-          <li>Birthday: {{birthday}}</li>
-          <li>Day of Death: {{dayOfDeath}}</li>
-          <li>Job: {{job}}</li>
+          <li>ID: {{celebrity?.id}}</li>
+          <li>Birthday: {{celebrity?.birthday}}</li>
+          <li>Day of Death: {{celebrity?.dayOfDeath}}</li>
+          <li>Job: {{celebrity?.job}}</li>
         </ul>
         <p>Some more interesting information which nobody knew until now!</p>
       </div>
