@@ -1,4 +1,5 @@
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
     args: ['install']
+    dir: 'data-backend'
 images: ['gcr.io/$PROJECT_ID/databackend']
