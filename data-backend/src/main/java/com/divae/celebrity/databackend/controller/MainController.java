@@ -21,14 +21,16 @@ public class MainController {
     @PostMapping("/add-celebrity")
     @ApiOperation("Creates a new celebrity")
     public ResponseEntity addNewCelebrity(@RequestBody final CelebrityModel celebrityModel) {
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/get-celebrity")
+    @GetMapping("/get-celebrity/{id}")
     @ApiOperation("Get a celebrity")
-    public ResponseEntity<CelebrityModel> getCelebrity() {
-        final CelebrityModel modelFromDisk = celebrityReaderService.getModelFromDisk();
+    public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
+
+        final CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromDiskBy(id);
         if (modelFromDisk != null) {
             return new ResponseEntity<>(modelFromDisk, HttpStatus.OK);
         }

@@ -10,6 +10,7 @@ import {RouterModule, Routes} from "@angular/router";
 const appRoutes: Routes = [
   {path: 'celebrity/:id', component: CelebrityDetailComponent},
   {path: '', redirectTo: '/celebrity/foo-notavailable', pathMatch: 'full'},
+  {path: 'not-found', component: PageNotFoundComponent}
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     CelebrityDetailComponent
   ],
   imports: [
-    RouterModule.forRoot( appRoutes, { enableTracing: true } ),
+    RouterModule.forRoot( appRoutes), //, { enableTracing: true } ),
     BrowserModule,
     HttpClientModule
   ],

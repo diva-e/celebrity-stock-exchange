@@ -28,7 +28,7 @@ public class MainControllerUnitTest {
     @Test
     public void getCelebrity() throws Exception {
 
-        when(celebrityReaderService.getModelFromDisk()).thenReturn(new CelebrityModel());
+        when(celebrityReaderService.getCelebrityFromDiskBy("foo-notavailable")).thenReturn(new CelebrityModel());
 
 
         mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity"))
@@ -39,7 +39,7 @@ public class MainControllerUnitTest {
     @Test
     public void getCelebrityFoundNothing() throws Exception {
 
-        when(celebrityReaderService.getModelFromDisk()).thenReturn(null);
+        when(celebrityReaderService.getCelebrityFromDiskBy("foo-notavailable")).thenReturn(null);
 
 
         mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity"))

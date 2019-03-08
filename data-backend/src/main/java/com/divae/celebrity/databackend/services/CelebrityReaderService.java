@@ -21,8 +21,8 @@ public class CelebrityReaderService {
     }
 
 
-    public CelebrityModel getModelFromDisk() {
-        final InputStream is = this.getClass().getClassLoader().getResourceAsStream("celebrity.json");
+    public CelebrityModel getCelebrityFromDiskBy(String id) {
+        final InputStream is = this.getClass().getClassLoader().getResourceAsStream(id + ".json");
         try {
             final CelebrityModel celebrityModel = objectMapper.readValue(is, CelebrityModel.class);
             return celebrityModel;
