@@ -9,11 +9,6 @@ import {map} from "rxjs/operators";
 export class DataBackendService {
 
   private getCelebrityEndpoint = environment.dataBackendUrl + '/get-celebrity';
-  // private httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type':  'application/json'
-  //   })
-  // };
 
   constructor(private http: HttpClient) {
   }

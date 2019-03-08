@@ -1,0 +1,29 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+img {
+  max-width: 500px;
+  margin: auto;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.general-info {
+}
+
+.detailed-info {
+  padding-top: 20px;
+}
+
+.content {
+  margin: auto;
+  width: 80%;
+  min-width: 500px;
+}
