@@ -28,10 +28,10 @@ public class MainControllerUnitTest {
     @Test
     public void getCelebrity() throws Exception {
 
-        when(celebrityReaderService.getCelebrityFromDiskBy("foo-notavailable")).thenReturn(new CelebrityModel());
+        when(celebrityReaderService.getCelebrityFromDiskBy("123")).thenReturn(new CelebrityModel());
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity/123"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
