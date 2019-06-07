@@ -8,7 +8,7 @@ import {map} from "rxjs/operators";
 })
 export class DataBackendService {
 
-  private getCelebrityEndpoint = environment.dataBackendUrl + '/get-celebrity/';
+  private getCelebrityEndpoint = environment.dataBackendUrl + '/celebrities/';
 
   constructor(private http: HttpClient) {
   }
