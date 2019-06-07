@@ -22,10 +22,12 @@ public class CelebrityReaderService {
 
 
     public CelebrityModel getCelebrityFromDiskBy(String id) {
-        final InputStream is = this.getClass().getClassLoader().getResourceAsStream(id + ".json");
         try {
+
+            final InputStream is = this.getClass().getClassLoader().getResourceAsStream(id + ".json");
             final CelebrityModel celebrityModel = objectMapper.readValue(is, CelebrityModel.class);
             return celebrityModel;
+
         } catch (IOException e) {
             LOG.error(e.getMessage(), e);
         }
