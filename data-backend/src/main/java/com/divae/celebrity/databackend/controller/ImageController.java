@@ -1,31 +1,36 @@
 package com.divae.celebrity.databackend.controller;
 
 import java.io.IOException;
-import org.springframework.core.io.ClassPathResource;
+
+import com.divae.celebrity.databackend.services.ImageReaderService;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("images")
 public class ImageController {
 
+	private final ImageReaderService imageReaderService;
+
+	public ImageController(ImageReaderService imageReaderService) {
+		this.imageReaderService = imageReaderService;
+	}
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "{id}", method = RequestMethod.GET,
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	public ResponseEntity<InputStreamResource> getImage(@PathVariable("id") String id) throws IOException {
 
-		ClassPathResource imgFile = new ClassPathResource("image/" + id + ".jpg");
+		InputStreamResource imageResource = imageReaderService.getImageFromResourcesBy(id);
 
-		if(imgFile.exists()) {
+		if(imageResource != null) {
 
 			return ResponseEntity
 					.ok()
 					.contentType(MediaType.IMAGE_JPEG)
-					.body(new InputStreamResource(imgFile.getInputStream()));
+					.body(imageResource);
 
 		} else {
 			return ResponseEntity.notFound().build();

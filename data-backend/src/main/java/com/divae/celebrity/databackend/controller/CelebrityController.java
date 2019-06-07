@@ -23,7 +23,7 @@ public class CelebrityController {
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
 
-        final CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromDiskBy(id);
+        final CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromResourcesBy(id);
         if (modelFromDisk != null) {
             return new ResponseEntity<>(modelFromDisk, HttpStatus.OK);
         }
