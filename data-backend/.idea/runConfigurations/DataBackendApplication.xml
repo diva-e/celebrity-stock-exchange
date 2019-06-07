@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DataBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="data-backend" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.divae.celebrity.databackend.DataBackendApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
