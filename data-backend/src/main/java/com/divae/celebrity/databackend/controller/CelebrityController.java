@@ -18,16 +18,8 @@ public class CelebrityController {
         this.celebrityReaderService = celebrityReaderService;
     }
 
-
-    @PostMapping("/add-celebrity")
-    @ApiOperation("Creates a new celebrity")
-    public ResponseEntity addNewCelebrity(@RequestBody final CelebrityModel celebrityModel) {
-
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/get-celebrity/{id}")
+    @GetMapping("{id}")
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
 
