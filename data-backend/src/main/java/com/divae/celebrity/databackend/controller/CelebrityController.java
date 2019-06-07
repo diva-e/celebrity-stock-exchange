@@ -8,12 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class MainController {
+@RequestMapping("celebrities")
+public class CelebrityController {
 
 
     private final CelebrityReaderService celebrityReaderService;
 
-    public MainController(CelebrityReaderService celebrityReaderService) {
+    public CelebrityController(CelebrityReaderService celebrityReaderService) {
         this.celebrityReaderService = celebrityReaderService;
     }
 

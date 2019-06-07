@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class MainControllerUnitTest {
+public class CelebrityControllerUnitTest {
 
     private MockMvc mockMvc;
 
@@ -20,8 +20,8 @@ public class MainControllerUnitTest {
 
     @Before
     public void setUp() {
-        MainController mainController = new MainController(celebrityReaderService);
-        mockMvc = MockMvcFactory.create(mainController);
+        CelebrityController celebrityController = new CelebrityController(celebrityReaderService);
+        mockMvc = MockMvcFactory.create(celebrityController);
     }
 
 
