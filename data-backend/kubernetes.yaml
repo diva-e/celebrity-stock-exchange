@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -6,7 +6,7 @@ metadata:
   labels:
     app: cex-databackend
   name: cex-databackend
-  namespace: default
+  namespace: cex
 spec:
   progressDeadlineSeconds: 2147483647
   replicas: 1
@@ -36,4 +36,20 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cex-databackend-ingress
+  namespace: cex
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: cex-databackend
+  sessionAffinity: None
+  type: ClusterIP
 
