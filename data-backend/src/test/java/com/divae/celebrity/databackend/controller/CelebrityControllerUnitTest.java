@@ -28,10 +28,10 @@ public class CelebrityControllerUnitTest {
     @Test
     public void getCelebrity() throws Exception {
 
-        when(celebrityReaderService.getCelebrityFromDiskBy("123")).thenReturn(new CelebrityModel());
+        when(celebrityReaderService.getCelebrityFromDiskBy("existingid")).thenReturn(new CelebrityModel());
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity/123"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/celebrities/existingid"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
     }
@@ -39,10 +39,10 @@ public class CelebrityControllerUnitTest {
     @Test
     public void getCelebrityFoundNothing() throws Exception {
 
-        when(celebrityReaderService.getCelebrityFromDiskBy("foo-notavailable")).thenReturn(null);
+        when(celebrityReaderService.getCelebrityFromDiskBy("notexistingid")).thenReturn(null);
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/celebrities/notexistingid"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
 
     }
