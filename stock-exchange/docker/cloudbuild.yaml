@@ -7,7 +7,7 @@ steps:
     args: ['install','-d']
   # clean cache
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['cache clean']
+    args: ['cache','clean']
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run','ng','build','--prod']
