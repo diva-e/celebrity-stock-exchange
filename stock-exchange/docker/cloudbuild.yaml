@@ -7,7 +7,8 @@ steps:
     args: ['install']
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run','ng','build','--prod','--aot']
+    args: ['run','ng','build']
+    #args: ['run','ng','build','--prod','--aot']
   # deploy in App Engine
 #  - name: "gcr.io/cloud-builders/gcloud"
 #    args: ["app", "deploy"]
