@@ -1,0 +1,13 @@
+steps:
+  # Install Angular
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install','-g','@angular/cli' ]
+  # Install Dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  # build Project in mode Prod.
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run','ng','build','--prod']
+
+images: ['gcr.io/$PROJECT_ID/stock-exchange']
+

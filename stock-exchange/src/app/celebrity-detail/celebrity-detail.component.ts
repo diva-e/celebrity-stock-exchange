@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataBackendService} from "../data-backend.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {DataBackendService} from '../data-backend.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-celebrity-detail',
@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class CelebrityDetailComponent implements OnInit {
 
   celebrity;
+  imageURL;
 
   constructor(
     private backendService: DataBackendService,
@@ -22,11 +23,12 @@ export class CelebrityDetailComponent implements OnInit {
 
     celebrityId = this.route.snapshot.params.id;
 
-    let celebObservable = this.backendService.getCelebrity(celebrityId);
+    const celebObservable = this.backendService.getCelebrity(celebrityId);
+    this.imageURL = this.backendService.getCelebrityImage(celebrityId);
 
     celebObservable.subscribe(
       (body: any) => this.celebrity = body,
-      () => this.router.navigateByUrl("/not-found" , { skipLocationChange: true })
+      () => this.router.navigateByUrl('/not-found' , { skipLocationChange: true })
     );
 
   }

@@ -5,5 +5,6 @@
   "id":"chuck-norris",
   "job": "Roundhouse kicker",
   "lastName": "Norris",
-  "description": "When Chuck Norris jumps in the water, he won`t become wet. The water becomes Chuck Norris."
+  "description": "When Chuck Norris jumps in the water, he won`t become wet. The water becomes Chuck Norris.",
+  "mentionsPerMonth": []
 }
