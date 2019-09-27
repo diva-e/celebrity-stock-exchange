@@ -1,27 +1,30 @@
 steps:
 
   # Install node packages
-  - name: 'gcr.io/cloud-builders/npm'
-    args: [ 'install' ]
-
-  # Build productive files
-  - name: 'gcr.io/cloud-builders/npm'
-    args: [ 'run', 'build', '--prod' ]
-    dir: 'stock-exchange'
-
-  # Install Angular
   #- name: 'gcr.io/cloud-builders/npm'
   #  args: ['install','-g','@angular/cli' ]
-  # Install Dependencies
+  #  dir: 'stock-exchange'
+
+  # Build productive files
   #- name: 'gcr.io/cloud-builders/npm'
-  #  args: ['install','-d']
+  #  args: [ 'run', 'build', '--prod' ]
+  #  dir: 'stock-exchange'
+
+  # Install Angular
+  - name: 'gcr.io/cloud-builders/npm'
+    dir: 'stock-exchange'
+    args: ['install','-g','@angular/cli' ]
+  # Install Dependencies
+  - name: 'gcr.io/cloud-builders/npm'
+    dir: 'stock-exchange'
+    args: ['install']
   # clean cache
   #- name: 'gcr.io/cloud-builders/npm'
   #  args: ['cache','clean']
   # build Project in mode Prod.
-  #- name: 'gcr.io/cloud-builders/npm'
-  #  dir: 'stock-exchange'
-  #  args: ['run','ng','build','--prod']
+  - name: 'gcr.io/cloud-builders/npm'
+    dir: 'stock-exchange'
+    args: ['run','ng','build','--prod']
 
 images: ['gcr.io/$PROJECT_ID/stock-exchange']
 
