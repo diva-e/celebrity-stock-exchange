@@ -4,7 +4,7 @@ steps:
     args: ['install','-g','@angular/cli' ]
   # Install Dependencies
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+    args: ['install','-d']
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run','ng','build','--prod']
