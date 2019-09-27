@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CelebrityDetailComponent implements OnInit {
 
   celebrity;
+  imageURL;
 
   constructor(
     private backendService: DataBackendService,
@@ -23,6 +24,7 @@ export class CelebrityDetailComponent implements OnInit {
     celebrityId = this.route.snapshot.params.id;
 
     const celebObservable = this.backendService.getCelebrity(celebrityId);
+    this.imageURL = this.backendService.getCelebrityImage(celebrityId);
 
     celebObservable.subscribe(
       (body: any) => this.celebrity = body,

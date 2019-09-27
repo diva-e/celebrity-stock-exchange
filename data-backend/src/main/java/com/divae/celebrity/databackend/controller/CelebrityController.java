@@ -1,6 +1,7 @@
 package com.divae.celebrity.databackend.controller;
 
 import com.divae.celebrity.databackend.model.CelebrityModel;
+import com.divae.celebrity.databackend.services.CelebrityFetcherService;
 import com.divae.celebrity.databackend.services.CelebrityReaderService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
@@ -13,9 +14,11 @@ public class CelebrityController {
 
 
     private final CelebrityReaderService celebrityReaderService;
+    private final CelebrityFetcherService celebrityFetcherService;
 
-    public CelebrityController(CelebrityReaderService celebrityReaderService) {
+    public CelebrityController(CelebrityReaderService celebrityReaderService, CelebrityFetcherService celebrityFetcherService) {
         this.celebrityReaderService = celebrityReaderService;
+        this.celebrityFetcherService = celebrityFetcherService;
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
@@ -23,7 +26,10 @@ public class CelebrityController {
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
 
-        final CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromDiskBy(id);
+        CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromDiskBy(id);
+
+        modelFromDisk.setMentionsPerMonth(celebrityFetcherService.getMentionsPerMonth());
+
         if (modelFromDisk != null) {
             return new ResponseEntity<>(modelFromDisk, HttpStatus.OK);
         }
