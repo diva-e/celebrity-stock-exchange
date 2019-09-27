@@ -7,11 +7,7 @@ steps:
     args: ['install']
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run','ng','build']
-    #args: ['run','ng','build','--prod','--aot']
-  # deploy in App Engine
-#  - name: "gcr.io/cloud-builders/gcloud"
-#    args: ["app", "deploy"]
-#timeout: "3000s"
+    args: ['run','ng','build','']
 
 images: ['gcr.io/$PROJECT_ID/stock-exchange']
+
