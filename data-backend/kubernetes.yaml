@@ -26,7 +26,7 @@ spec:
       containers:
         env:
           - name: PORT
-          - value: 8080
+            value: 8080
         - image: gcr.io/celebrity-stock-exchange/databackend:latest
           imagePullPolicy: Always
           name: databackend
