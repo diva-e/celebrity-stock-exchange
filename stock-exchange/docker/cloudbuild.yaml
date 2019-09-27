@@ -7,7 +7,7 @@ steps:
     args: ['install']
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run','ng','build','']
+    args: ['run','ng','build','--prod']
 
 images: ['gcr.io/$PROJECT_ID/stock-exchange']
 
