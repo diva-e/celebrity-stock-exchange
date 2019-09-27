@@ -4,15 +4,15 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
   labels:
-    app: cex-databackend
-  name: cex-databackend
+    app: cex-frontend
+  name: cex-frontend
 spec:
   progressDeadlineSeconds: 2147483647
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: cex-databackend
+      app: cex-frontend
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -21,18 +21,15 @@ spec:
   template:
     metadata:
       labels:
-        app: cex-databackend
+        app: cex-frontend
     spec:
       containers:
-        - image: gcr.io/celebrity-stock-exchange/databackend:latest
+        - image: gcr.io/celebrity-stock-exchange/stock-exchange:latest
           imagePullPolicy: Always
-          name: databackend
+          name: frontend
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          env:
-            - name: PORT
-              value: "8080"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -43,11 +40,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cex-databackend-loadbalancer
+  name: cex-frontend-loadbalancer
 spec:
   type: LoadBalancer
   selector:
-    app: cex-databackend
+    app: cex-frontend
   ports:
     - protocol: TCP
       port: 80
