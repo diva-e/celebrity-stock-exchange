@@ -9,4 +9,4 @@ baseUrl = "http://localhost:4200/"
 reportsDir = "${System.getenv('HOME')}/webtest-reporting"
 
 hubUrl = "http://localhost:4444/wd/hub"
-driver = {new ChromeDriver(new URL("${hubUrl}"), DesiredCapabilities.chrome())}
+driver = {new ChromeDriver()}
