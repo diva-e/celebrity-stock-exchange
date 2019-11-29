@@ -1,0 +1,35 @@
+version: '3.5'
+services:
+  hub:
+    image: selenium/hub:latest
+    ports:
+      - "4444:4444"
+    container_name: selenium-hub
+    networks:
+      - grid1
+
+  chromenode1:
+    container_name: chromenode1
+    image: selenium/node-chrome:latest
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+    networks:
+      - grid1
+
+  chromenode2:
+    container_name: chromenode2
+    image: selenium/node-chrome:latest
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+    networks:
+      - grid1
+
+networks:
+  grid1:
+    name: grid1
+
+
