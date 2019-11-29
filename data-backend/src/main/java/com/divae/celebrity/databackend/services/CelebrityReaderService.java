@@ -21,7 +21,7 @@ public class CelebrityReaderService {
     }
 
 
-    public CelebrityModel getCelebrityFromDiskBy(String id) {
+    public CelebrityModel getCelebrityFromResourcesBy(String id) {
         try {
 
             final InputStream is = this.getClass().getClassLoader().getResourceAsStream(id + ".json");
