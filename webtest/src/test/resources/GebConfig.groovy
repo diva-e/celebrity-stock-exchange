@@ -1,3 +1,4 @@
+import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
@@ -8,4 +9,4 @@ baseUrl = "http://localhost:4200/"
 reportsDir = "${System.getenv('HOME')}/webtest-reporting"
 
 hubUrl = "http://localhost:4444/wd/hub"
-driver = {new RemoteWebDriver(new URL("${hubUrl}"), DesiredCapabilities.chrome())}
+driver = {new ChromeDriver(new URL("${hubUrl}"), DesiredCapabilities.chrome())}

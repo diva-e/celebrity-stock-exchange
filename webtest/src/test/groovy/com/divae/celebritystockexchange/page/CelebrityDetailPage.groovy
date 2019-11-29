@@ -3,7 +3,7 @@ package com.divae.celebritystockexchange.page
 import geb.Page
 
 class CelebrityDetailPage extends Page {
-    static url = "/de/referenzen/fc-bayern-muenchen/"
+    static url = "/celebrity/chuck-norris"
 
     static at = { title == "FC Bayern München" }
 
