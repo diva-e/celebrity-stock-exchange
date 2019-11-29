@@ -3,13 +3,14 @@ package com.divae.celebritystockexchange.page
 import geb.Page
 
 class CelebrityDetailPage extends Page {
-    static url = "/celebrity/chuck-norris"
+    //static url = "/celebrity/chuck-norris"
 
-    static at = { title == "FC Bayern München" }
+    static at = { title == "StockExchange" }
 
     static content = {
         headingBox {
-            $("span", class: "sm-logo-label", text: "FC Bayern München")
+            $("h1", text: "Chuck Norris")
         }
     }
 }
+

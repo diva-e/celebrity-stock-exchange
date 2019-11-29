@@ -3,9 +3,9 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
 // points to local driver, maybe not needed
-System.setProperty('webdriver.chrome.driver', 'src/test/resources/drivers/chromedriver-linux-64bit')
+System.setProperty('webdriver.chrome.driver', 'src/test/resources/drivers/chromedriver-mac-64bit')
 
-baseUrl = "http://localhost:4200/"
+baseUrl = "http://localhost:4200/celebrity"
 reportsDir = "${System.getenv('HOME')}/webtest-reporting"
 
 hubUrl = "http://localhost:4444/wd/hub"
