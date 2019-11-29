@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+In run-Konfiguration Pfad zu node und npm angeben (auf eventuelle symbolic links achten, intelliJ kann das anscheinend nicht selbst auflösen)
+Einmalig npm install ausführen, um die nötigen Abhängigkeiten zu installieren.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
