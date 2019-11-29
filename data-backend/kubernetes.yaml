@@ -30,6 +30,9 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          env:
+            - name: PORT
+              value: "8080"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler

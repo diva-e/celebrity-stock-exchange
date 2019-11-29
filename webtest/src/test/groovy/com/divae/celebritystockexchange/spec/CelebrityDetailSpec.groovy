@@ -10,6 +10,8 @@ class CelebrityDetailSpec extends GebReportingSpec {
         to CelebrityDetailPage
         then:
         at CelebrityDetailPage
-        headingBox.size() > 0
+
+        $("div").has("p")
+
     }
 }

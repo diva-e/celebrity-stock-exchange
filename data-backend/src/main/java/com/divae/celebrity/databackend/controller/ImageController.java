@@ -3,6 +3,7 @@ package com.divae.celebrity.databackend.controller;
 import java.io.IOException;
 
 import com.divae.celebrity.databackend.services.ImageReaderService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,8 @@ public class ImageController {
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "{id}", method = RequestMethod.GET,
-			produces = MediaType.IMAGE_JPEG_VALUE)
+	@GetMapping(value = "{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+	@ApiOperation("Get a celebrity image")
 	public ResponseEntity<InputStreamResource> getImage(@PathVariable("id") String id) throws IOException {
 
 		InputStreamResource imageResource = imageReaderService.getImageFromResourcesBy(id);
@@ -32,8 +33,8 @@ public class ImageController {
 					.contentType(MediaType.IMAGE_JPEG)
 					.body(imageResource);
 
-		} else {
-			return ResponseEntity.notFound().build();
-		}
-	}
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

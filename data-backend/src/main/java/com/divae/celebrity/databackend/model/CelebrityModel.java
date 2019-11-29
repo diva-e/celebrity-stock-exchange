@@ -10,6 +10,8 @@ public class CelebrityModel {
     private LocalDate birthday;
     private LocalDate dayOfDeath;
     private String job;
+    private String description;
+    private int[] mentionsPerMonth;
 
 
     public String getId() {
@@ -72,5 +74,21 @@ public class CelebrityModel {
                 ", dayOfDeath=" + dayOfDeath +
                 ", job='" + job + '\'' +
                 '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int[] getMentionsPerMonth() {
+        return mentionsPerMonth;
+    }
+
+    public void setMentionsPerMonth(int[] mentionsPerMonth) {
+        this.mentionsPerMonth = mentionsPerMonth;
     }
 }

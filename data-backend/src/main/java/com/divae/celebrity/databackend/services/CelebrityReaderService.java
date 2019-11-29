@@ -34,5 +34,4 @@ public class CelebrityReaderService {
         return null;
     }
 
-
 }

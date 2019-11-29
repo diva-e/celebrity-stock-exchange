@@ -4,5 +4,6 @@
   "firstName": "Foo",
   "id":"foo-notavailable",
   "job": "devops",
-  "lastName": "notavailble"
+  "lastName": "notavailable",
+  "description": "not yet"
 }

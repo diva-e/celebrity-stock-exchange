@@ -2,6 +2,7 @@ package com.divae.celebrity.databackend.controller;
 
 import com.divae.celebrity.databackend.mockmvc.MockMvcFactory;
 import com.divae.celebrity.databackend.model.CelebrityModel;
+import com.divae.celebrity.databackend.services.CelebrityFetcherService;
 import com.divae.celebrity.databackend.services.CelebrityReaderService;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,10 +18,11 @@ public class CelebrityControllerUnitTest {
     private MockMvc mockMvc;
 
     private final CelebrityReaderService celebrityReaderService = mock(CelebrityReaderService.class);
+    private final CelebrityFetcherService celebrityFetcherService = mock(CelebrityFetcherService.class);
 
     @Before
     public void setUp() {
-        CelebrityController celebrityController = new CelebrityController(celebrityReaderService);
+        CelebrityController celebrityController = new CelebrityController(celebrityReaderService, celebrityFetcherService);
         mockMvc = MockMvcFactory.create(celebrityController);
     }
 
