@@ -26,7 +26,7 @@ public class CelebrityController {
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
 
-        CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromDiskBy(id);
+        CelebrityModel modelFromDisk = celebrityReaderService.getCelebrityFromResourcesBy(id);
 
         modelFromDisk.setMentionsPerMonth(celebrityFetcherService.getMentionsPerMonth());
 

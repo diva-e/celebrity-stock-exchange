@@ -30,7 +30,7 @@ public class CelebrityControllerUnitTest {
     @Test
     public void getCelebrity() throws Exception {
 
-        when(celebrityReaderService.getCelebrityFromDiskBy("existingid")).thenReturn(new CelebrityModel());
+        when(celebrityReaderService.getCelebrityFromResourcesBy("existingid")).thenReturn(new CelebrityModel());
 
 
         mockMvc.perform(MockMvcRequestBuilders.get("/celebrities/existingid"))
@@ -41,7 +41,7 @@ public class CelebrityControllerUnitTest {
     @Test
     public void getCelebrityFoundNothing() throws Exception {
 
-        when(celebrityReaderService.getCelebrityFromDiskBy("notexistingid")).thenReturn(null);
+        when(celebrityReaderService.getCelebrityFromResourcesBy("notexistingid")).thenReturn(null);
 
 
         mockMvc.perform(MockMvcRequestBuilders.get("/celebrities/notexistingid"))
