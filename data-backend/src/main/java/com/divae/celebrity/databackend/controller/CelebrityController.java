@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("get-celebrity")
+@RequestMapping("/get-celebrity")
 public class CelebrityController {
 
 
@@ -22,7 +22,7 @@ public class CelebrityController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
 
