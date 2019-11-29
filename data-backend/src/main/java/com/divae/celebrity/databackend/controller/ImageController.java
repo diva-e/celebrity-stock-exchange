@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("images")
+@RequestMapping("/images")
 public class ImageController {
 
 	private final ImageReaderService imageReaderService;
@@ -20,7 +20,7 @@ public class ImageController {
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping(value = "{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+	@GetMapping(value = "/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
 	@ApiOperation("Get a celebrity image")
 	public ResponseEntity<InputStreamResource> getImage(@PathVariable("id") String id) throws IOException {
 

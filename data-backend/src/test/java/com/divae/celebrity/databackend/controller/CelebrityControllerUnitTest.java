@@ -33,7 +33,7 @@ public class CelebrityControllerUnitTest {
         when(celebrityReaderService.getCelebrityFromResourcesBy("existingid")).thenReturn(new CelebrityModel());
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/celebrities/existingid"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/get-celebrity/existingid"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
     }

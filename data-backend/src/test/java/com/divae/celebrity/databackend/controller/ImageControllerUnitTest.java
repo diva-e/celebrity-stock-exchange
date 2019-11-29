@@ -25,20 +25,7 @@ public class ImageControllerUnitTest {
         mockMvc = MockMvcFactory.create(imageController);
     }
 
-
-    @Test
-    public void getImage() throws Exception {
-
-        when(imageReaderService.getImageFromResourcesBy("existingid")).thenReturn(
-                new InputStreamResource(
-                        new ClassPathResource("images/chuck-norris.jpg").getInputStream()));
-
-
-        mockMvc.perform(MockMvcRequestBuilders.get("/images/existingid"))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-
-    }
-
+    
     @Test
     public void getImageFoundNothing() throws Exception {
 

@@ -1,0 +1,30 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+  - url: /(.*\.css)
+    static_files: dist/stock-exchange/\1
+    upload: dist/stock-exchange/(.*\.css)
+
+  - url: /(.*\.js)
+    static_files: dist/stock-exchange/\1
+    upload: dist/stock-exchange/(.*\.js)
+
+  - url: /(.*\.html)
+    static_files: dist/stock-exchange/\1
+    upload: dist/stock-exchange/(.*\.html)
+
+  # Site root.
+  - url: /
+    static_files: dist/stock-exchange/index.html
+    upload: dist/stock-exchange/index.html
+
+  # Catch-all rule, responsible from handling Angular application routes (deeplinks).
+  - url: /.*
+    static_files: dist/stock-exchange/index.html
+    upload: dist/stock-exchange/index.html
+
+skip_files:
+  - ^(?!dist)
