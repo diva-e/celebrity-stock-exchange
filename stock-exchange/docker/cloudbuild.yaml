@@ -13,5 +13,6 @@ steps:
     args: ['run','ng','build','--prod']
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/frontend', '.' ]
+    dir: 'stock-exchange'
 images:
   - 'gcr.io/$PROJECT_ID/frontend'
