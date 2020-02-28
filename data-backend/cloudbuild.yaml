@@ -10,6 +10,6 @@ steps:
     - 'kubernetes.yaml'
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'data-backend'
 images: ['gcr.io/$PROJECT_ID/databackend']
