@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   //url of the REST Endpoint of the data-backend application
-  dataBackendUrl: 'http://localhost:8080'
+  //dataBackendUrl: 'http://localhost:8080'
+  dataBackendUrl: 'http://34.77.63.65'
 };
 
 /*
