@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/images")
+@CrossOrigin(origins = "*")
 public class ImageController {
 
 	private final ImageReaderService imageReaderService;
