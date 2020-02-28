@@ -24,7 +24,7 @@ spec:
         app: cex-frontend
     spec:
       containers:
-        - image: gcr.io/celebrity-stock-exchange/frontend:$COMMIT_SHA
+        - image: gcr.io/celebrity-stock-exchange/frontend
           imagePullPolicy: Always
           name: frontend
           resources: {}

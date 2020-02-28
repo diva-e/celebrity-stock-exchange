@@ -24,5 +24,16 @@ steps:
       - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'stock-exchange'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Update-Image
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/cex-frontend'
+      - 'gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA'
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
+    dir: 'stock-exchange'
 images:
   - 'gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA'
