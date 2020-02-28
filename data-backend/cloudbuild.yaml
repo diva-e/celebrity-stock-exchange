@@ -12,4 +12,12 @@ steps:
     - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
     - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'data-backend'
+  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+    args:
+    - '-Dsonar.host.url=https://sonarcloud.io'
+    - '-Dsonar.login=ae95b8a39b3b0a874e92acf6e62b848e0834f3e4'
+    - '-Dsonar.projectKey=diva-e_celebrity-stock-exchange'
+    - '-Dsonar.organization=diva-e'
+    - '-Dsonar.sources=.'
+    dir: 'data-backend'
 images: ['gcr.io/$PROJECT_ID/databackend']
