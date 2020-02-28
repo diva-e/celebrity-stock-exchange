@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/get-celebrity")
+@CrossOrigin(origins = "*")
 public class CelebrityController {
 
 
