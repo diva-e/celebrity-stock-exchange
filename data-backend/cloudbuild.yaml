@@ -1,5 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
+    id: Maven Build
     args: ['install','-DskipTests']
     dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -13,6 +14,7 @@ steps:
     - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'data-backend'
   - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+    id: Sonar Analysis
     args:
     - '-Dsonar.host.url=https://sonarcloud.io'
     - '-Dsonar.login=ae95b8a39b3b0a874e92acf6e62b848e0834f3e4'
