@@ -30,7 +30,7 @@ steps:
       - 'set'
       - 'image'
       - 'deployment/cex-frontend'
-      - 'gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA'
+      - 'frontend=gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
