@@ -10,7 +10,7 @@ steps:
   # build Project in mode Prod.
   - name: 'gcr.io/cloud-builders/npm'
     dir: 'stock-exchange'
-    args: ['ng','build','--prod']
+    args: ['run','ng','build','--prod']
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA', '.' ]
     dir: 'stock-exchange'
