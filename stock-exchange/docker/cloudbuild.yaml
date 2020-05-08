@@ -11,6 +11,9 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     dir: 'stock-exchange'
     args: ['sed','-i','s/__DATABACKEND_URL__/${_DATA_BACKEND_URL_}','../src/environments/environment.prod.ts']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
   - name: 'gcr.io/cloud-builders/npm'
     dir: 'stock-exchange'
     args: ['run','ng','build','--','--prod']
