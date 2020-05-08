@@ -10,7 +10,7 @@ steps:
   # build Project in mode Prod.
   - name: 'ubuntu'
     dir: 'stock-exchange'
-    args: ['sed','-i','s/__DATABACKEND_URL__/${_DATA_BACKEND_URL_}','../src/environments/environment.prod.ts']
+    args: ['sed','-i','s/__DATABACKEND_URL__/${_DATA_BACKEND_URL_}/','../src/environments/environment.prod.ts']
   - name: 'gcr.io/cloud-builders/npm'
     dir: 'stock-exchange'
     args: ['run','ng','build','--','--prod']
