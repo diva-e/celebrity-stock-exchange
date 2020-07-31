@@ -22,6 +22,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <sonar.projectKey>diva-e_celebrity-stock-exchange</sonar.projectKey>
+        <sonar.organization>diva-e</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>11996c5f58176519da86538723b0a56e6b96c4af</sonar.login>
     </properties>
 
     <dependencies>
