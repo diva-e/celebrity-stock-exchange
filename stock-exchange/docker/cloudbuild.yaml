@@ -24,7 +24,7 @@ steps:
       - '-f'
       - 'kubernetes.yaml'
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'stock-exchange'
   - name: 'gcr.io/cloud-builders/kubectl'
