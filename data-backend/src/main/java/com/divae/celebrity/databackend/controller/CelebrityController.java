@@ -22,7 +22,6 @@ public class CelebrityController {
         this.celebrityFetcherService = celebrityFetcherService;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     @ApiOperation("Get a celebrity")
     public ResponseEntity<CelebrityModel> getCelebrity(@PathVariable("id") String id) {
