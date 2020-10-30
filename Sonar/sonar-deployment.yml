@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,6 +6,9 @@ metadata:
   name: sonarqube
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: sonarqube
   template:
     metadata:
       labels:
@@ -14,13 +17,7 @@ spec:
       containers:
         - name: sonarqube
           image: sonarqube:latest
-          resources:
-            requests:
-              cpu: 500m
-              memory: 1024Mi
-            limits:
-              cpu: 2000m
-              memory: 2048Mi
+          resources: {}
           volumeMounts:
           - mountPath: "/opt/sonarqube/data/"
             name: sonar-data
