@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-name: sonar-data
+  name: sonar-data
 spec:
-accessModes:
-- ReadWriteOnce
-storageClassName: standard
-resources:
-requests:
-storage: 31Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 31Gi
