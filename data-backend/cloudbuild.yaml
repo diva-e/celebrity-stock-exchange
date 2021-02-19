@@ -1,7 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
     id: Maven Build
-    args: ['install','-DskipTests','-P build-docker-image']
+    args: ['install','-DskipTests']
     dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/celebrity-stock-exchange/databackend:latest', '.']
