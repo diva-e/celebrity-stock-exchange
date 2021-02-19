@@ -1,6 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
     id: Maven Build
+    args: ['sonar:sonar','-Dsonar.projectKey=celebrity-stock-exchange','-Dsonar.host.url=http://34.76.132.85', '-Dsonar.login=8a0e479cbd0bae9bfc34a8f6595350487d8fa141']
+    dir: 'data-backend'
+  - name: 'gcr.io/cloud-builders/mvn'
+    id: Sonar Analysis
     args: ['install','-DskipTests','-P build-docker-image']
     dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -13,13 +17,4 @@ steps:
     - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
     - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'data-backend'
-  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-    id: Sonar Analysis
-    args:
-    - '-Dsonar.host.url=https://sonarcloud.io'
-    - '-Dsonar.login=ae95b8a39b3b0a874e92acf6e62b848e0834f3e4'
-    - '-Dsonar.projectKey=diva-e_celebrity-stock-exchange'
-    - '-Dsonar.organization=diva-e'
-    - '-Dsonar.sources=.'
-    dir: 'data-backend/target/classes'
 images: ['gcr.io/$PROJECT_ID/databackend']
