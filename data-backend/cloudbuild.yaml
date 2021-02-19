@@ -5,7 +5,9 @@ steps:
     dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/mvn'
     id: Sonar Analysis
-    args: ['sonar:sonar','-Dsonar.projectKey=celebrity-stock-exchange', '-Dsonar.branch.name=develop', '-Dsonar.host.url=http://35.195.53.92', '-Dsonar.login=1f32c1e43186674e060bf6343d236f55e2a4eced']
+    args: ['sonar:sonar','-Dsonar.projectKey=celebrity-stock-exchange', '-Dsonar.host.url=http://35.195.53.92', '-Dsonar.login=1f32c1e43186674e060bf6343d236f55e2a4eced']
+# Developer Edition is needed to run analysis on develop branch
+#    args: ['sonar:sonar','-Dsonar.projectKey=celebrity-stock-exchange', '-Dsonar.branch.name=develop', '-Dsonar.host.url=http://35.195.53.92', '-Dsonar.login=1f32c1e43186674e060bf6343d236f55e2a4eced']
     dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/docker'
     id: Remove old docker image
