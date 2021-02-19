@@ -21,7 +21,7 @@ const appRoutes: Routes = [
     CelebrityDetailComponent
   ],
   imports: [
-    RouterModule.forRoot( appRoutes), //, { enableTracing: true } ),
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule
   ],
