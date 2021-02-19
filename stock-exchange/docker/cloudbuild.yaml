@@ -9,6 +9,7 @@ steps:
     args: ['install']
   # build Project in mode Prod.
   - name: 'ubuntu'
+    id: Set data-backend URL
     dir: 'stock-exchange'
     args: ['sed','-i','s/__DATABACKEND_URL__/${_DATA_BACKEND_URL_}/','src/environments/environment.prod.ts']
   - name: 'gcr.io/cloud-builders/npm'
@@ -24,7 +25,7 @@ steps:
       - '-f'
       - 'kubernetes.yaml'
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'stock-exchange'
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -35,7 +36,7 @@ steps:
       - 'deployment/cex-frontend'
       - 'frontend=gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA'
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cex-cluster'
     dir: 'stock-exchange'
 images:
