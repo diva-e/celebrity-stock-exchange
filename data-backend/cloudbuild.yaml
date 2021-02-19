@@ -3,12 +3,13 @@ steps:
     id: Maven Build
     args: ['install','-DskipTests']
     dir: 'data-backend'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/celebrity-stock-exchange/databackend:latest', '.']
   - name: 'gcr.io/cloud-builders/mvn'
     id: Sonar Analysis
     args: ['sonar:sonar','-Dsonar.projectKey=celebrity-stock-exchange','-Dsonar.host.url=http://35.195.53.92', '-Dsonar.login=8a0e479cbd0bae9bfc34a8f6595350487d8fa141']
     dir: 'data-backend'
+  - name: 'gcr.io/cloud-builders/docker'
+    id: Build docker image
+    args: ['build', '-t', 'gcr.io/celebrity-stock-exchange/databackend:latest', '.']
   - name: 'gcr.io/cloud-builders/kubectl'
     id: Deploy
     args:
