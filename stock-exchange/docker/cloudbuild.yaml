@@ -1,15 +1,12 @@
 steps:
-  # Install Angular
   - name: 'gcr.io/cloud-builders/npm'
-    id: Npm install Angular CLI
+    id: Npm Install Angular (CLI)
     dir: 'stock-exchange'
     args: ['install','-g','@angular/cli' ]
-  # Install Dependencies
   - name: 'gcr.io/cloud-builders/npm'
-    id: Npm install
+    id: Npm Install (Dependencies)
     dir: 'stock-exchange'
     args: ['install']
-  # build Project in mode Prod.
   - name: 'ubuntu'
     id: Set data-backend URL
     dir: 'stock-exchange'
@@ -19,11 +16,11 @@ steps:
     dir: 'stock-exchange'
     args: ['run','ng','lint']
   - name: 'gcr.io/cloud-builders/npm'
-    id: Npm build
+    id: Npm Build --prod
     dir: 'stock-exchange'
     args: ['run','ng','build','--','--prod']
   - name: 'gcr.io/cloud-builders/docker'
-    id: Build docker image
+    id: Build Docker Image
     args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/frontend:$COMMIT_SHA', '.' ]
     dir: 'stock-exchange'
   - name: 'gcr.io/cloud-builders/kubectl'
