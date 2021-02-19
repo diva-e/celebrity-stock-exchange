@@ -12,7 +12,7 @@ steps:
   - name: 'docker'
     id: Build docker image
     args: ['build', '-t', 'gcr.io/celebrity-stock-exchange/databackend:latest', '.']
-    images: ['gcr.io/celebrity-stock-exchange/databackend:latest']
+  images: ['gcr.io/celebrity-stock-exchange/databackend:latest']
   - name: 'gcr.io/cloud-builders/kubectl'
     id: Deploy
     args:
