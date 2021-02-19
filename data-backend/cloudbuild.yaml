@@ -11,6 +11,7 @@ steps:
     dir: 'data-backend'
   - name: 'docker'
     args: ['build', '-t', 'gcr.io/celebrity-stock-exchange/databackend:latest', '.']
+    dir: 'data-backend'
   - name: 'gcr.io/cloud-builders/kubectl'
     id: Deploy
     args:
